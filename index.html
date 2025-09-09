@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh"> 
+<html lang="en"> 
  <head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>交互式布局</title> 
+  <title>Interactive Layout</title> 
   <style>
         * {
             box-sizing: border-box;
@@ -117,25 +117,25 @@
    <div class="box" id="boxLeft"> 
     <img src="L01.png" alt="Main Image Left" id="jpeg01L" class="main-image"> 
     <div class="text-container" id="textLeft">
-     左侧内容
+     Left Content
     </div> 
    </div> 
    <div class="box" id="boxRight"> 
     <img src="R01.png" alt="Main Image Right" id="jpeg01R" class="main-image"> 
     <div class="text-container" id="textRight">
-     右侧内容
+     Right Content
     </div> 
    </div> 
   </div> 
   <div class="tabs"> 
-   <div class="tab" id="textLs">左侧</div> 
-   <div class="tab active" id="textBs">中间</div> 
-   <div class="tab" id="textRs">右侧</div> 
+   <div class="tab" id="textLs">Left</div> 
+   <div class="tab active" id="textBs">Center</div> 
+   <div class="tab" id="textRs">Right</div> 
   </div> 
 
-  <!-- 左侧内容区域 --> 
+  <!-- Left content area --> 
   <div class="content-box" id="boxLs"> 
-   <h3 class="section-title" id="textL1">左侧图集</h3> 
+   <h3 class="section-title" id="textL1">Left Gallery</h3> 
    <div class="image-gallery"> 
     <!-- L01 ~ L29 -->
     <img src="L01.png" alt="Thumbnail L01" class="thumbnail" data-target="L01"> 
@@ -170,9 +170,9 @@
    </div> 
   </div> 
 
-  <!-- 中间内容区域，默认展开 --> 
+  <!-- Center content area, default open --> 
   <div class="content-box active" id="boxBs"> 
-   <h3 class="section-title" id="textB1">中间图集</h3> 
+   <h3 class="section-title" id="textB1">Center Gallery</h3> 
    <div class="image-gallery"> 
     <!-- B01 ~ B29 -->
     <img src="B01.png" alt="Thumbnail B01" class="thumbnail" data-target="B01"> 
@@ -207,9 +207,9 @@
    </div> 
   </div> 
 
-  <!-- 右侧内容区域 --> 
+  <!-- Right content area --> 
   <div class="content-box" id="boxRs"> 
-   <h3 class="section-title" id="textR1">右侧图集</h3> 
+   <h3 class="section-title" id="textR1">Right Gallery</h3> 
    <div class="image-gallery"> 
     <!-- R01 ~ R29 -->
     <img src="R01.png" alt="Thumbnail R01" class="thumbnail" data-target="R01"> 
@@ -245,14 +245,14 @@
   </div> 
 
   <script>
-        // 颜色名称列表
+        // Color name list
         const leftColorNames = [
-            "Transparent Clear","Transparent Black","Transparent Red","Transparent Sky Blue","Transparent Navi Blue","Transparent Apple Greem","Transparent Emerald Green","Transparent Yellow","Transparent Orange","Transparent Purple","Transparent Pink","Solid White","Solid Black","Solid Red","Solid Sky Blue","Solid Navi Blue","Solid Apple Greem","Solid Emerald Green","Solid Yellow","Solid Orange","Solid Purple","Solid Pink","Glitter Silver","Glitter Gold","Glitter Red","Glitter Blue","Glitter Green","Glitter Purple","Glitter Pink"
+            "Transparent Clear","Transparent Black","Transparent Red","Transparent Sky Blue","Transparent Navy Blue","Transparent Apple Green","Transparent Emerald Green","Transparent Yellow","Transparent Orange","Transparent Purple","Transparent Pink","Solid White","Solid Black","Solid Red","Solid Sky Blue","Solid Navy Blue","Solid Apple Green","Solid Emerald Green","Solid Yellow","Solid Orange","Solid Purple","Solid Pink","Glitter Silver","Glitter Gold","Glitter Red","Glitter Blue","Glitter Green","Glitter Purple","Glitter Pink"
         ];
         
         const rightColorNames = [...leftColorNames];
 
-        // 页签切换功能
+        // Tab switching
         const tabs = document.querySelectorAll('.tab');
         const contentBoxes = document.querySelectorAll('.content-box');
         
@@ -266,7 +266,7 @@
             });
         });
         
-        // 缩略图点击更新主图片功能和文本更新
+        // Thumbnail click to update main image and text
         const thumbnails = document.querySelectorAll('.thumbnail');
         
         thumbnails.forEach(thumb => {
