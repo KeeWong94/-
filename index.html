@@ -128,15 +128,9 @@
    </div> 
   </div> 
   <div class="tabs"> 
-   <div class="tab" id="textLs">
-    左侧
-   </div> 
-   <div class="tab active" id="textBs">
-    中间
-   </div> 
-   <div class="tab" id="textRs">
-    右侧
-   </div> 
+   <div class="tab" id="textLs">左侧</div> 
+   <div class="tab active" id="textBs">中间</div> 
+   <div class="tab" id="textRs">右侧</div> 
   </div> 
 
   <!-- 左侧内容区域 --> 
@@ -296,4 +290,11 @@
                     document.getElementById('jpeg01R').src = `R${number.toString().padStart(2,"0")}.png`;
                     if (number >= 1 && number <= 29) {
                         document.getElementById('textLeft').textContent = `Left: ${leftColorNames[number-1]}`;
-                        document.getElementById('textRight').textContent = `Right: ${rightColorNames[number-1]
+                        document.getElementById('textRight').textContent = `Right: ${rightColorNames[number-1]}`;
+                    }
+                }
+            });
+        });
+    </script> 
+ </body>
+</html>
