@@ -1,0 +1,429 @@
+<section class="color-selector">
+    <style>
+        .color-selector * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .color-selector {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #222;
+            color: #f0f0f0;
+        }
+
+        .color-selector .paragraph {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .color-selector .images-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .color-selector .image-box {
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #ddd;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .color-selector .main-image {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .color-selector .text-container {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .color-selector .tabs-container {
+            margin-bottom: 20px;
+        }
+
+        .color-selector .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .color-selector .tab {
+            padding: 10px 20px;
+            background-color: #444;
+            border: 1px solid #666;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #f0f0f0;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .color-selector .tab:hover {
+            background-color: #555;
+        }
+
+        .color-selector .tab.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .color-selector .content-box {
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 20px;
+            display: none;
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        .color-selector .content-box.active {
+            display: block;
+        }
+
+        .color-selector .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 20px;
+            justify-content: center;
+        }
+
+        .color-selector .thumbnail {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 2px solid #666;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            object-fit: cover;
+        }
+
+        .color-selector .thumbnail:hover {
+            border-color: #4CAF50;
+            transform: scale(1.05);
+        }
+
+        .color-selector .section-title {
+            margin: 15px 0 5px;
+            color: #f0f0f0;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .color-selector .images-row {
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .color-selector .image-box {
+                min-width: 45%;
+                min-height: 250px;
+            }
+
+            .color-selector .main-image {
+                max-width: 180px;
+            }
+
+            .color-selector .text-container {
+                font-size: 14px;
+            }
+
+            .color-selector .tabs {
+                flex-wrap: wrap;
+            }
+
+            .color-selector .tab {
+                min-width: 80px;
+                padding: 8px 15px;
+            }
+
+            .color-selector .thumbnail {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .color-selector {
+                padding: 10px;
+            }
+
+            .color-selector .paragraph h2 {
+                font-size: 18px;
+            }
+
+            .color-selector .images-row {
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .color-selector .image-box {
+                min-width: 48%;
+                min-height: 220px;
+                padding: 10px;
+            }
+
+            .color-selector .main-image {
+                max-width: 150px;
+            }
+
+            .color-selector .text-container {
+                font-size: 13px;
+            }
+
+            .color-selector .tab {
+                min-width: 70px;
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+
+            .color-selector .section-title {
+                font-size: 16px;
+            }
+
+            .color-selector .thumbnail {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+
+    <div class="paragraph">
+        <h2>Our models are available in multiple colors, allowing you to select the finish that best suits your style</h2>
+    </div>
+
+    <!-- 左右展示图 -->
+    <div class="images-row">
+        <div class="image-box" id="boxLeft">
+            <img src="L01.png" alt="Main Image Left" id="jpeg01L" class="main-image">
+            <div class="text-container" id="textLeft">Left: Transparent Clear</div>
+        </div>
+
+        <div class="image-box" id="boxRight">
+            <img src="R01.png" alt="Main Image Right" id="jpeg01R" class="main-image">
+            <div class="text-container" id="textRight">Right: Transparent Clear</div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab" id="textLs">Left</div>
+            <div class="tab active" id="textBs">Both</div>
+            <div class="tab" id="textRs">Right</div>
+        </div>
+
+        <!-- 三个内容区（Both / Left / Right） -->
+        <div class="content-box active" id="boxBs">
+            <!-- 保留你原来的缩略图和分类 -->
+            <!-- Transparent Colors -->
+            <h3 class="section-title">Transparent Colors</h3>
+            <div class="image-gallery">
+                <img src="B01.png" class="thumbnail" data-target="B01">
+                <img src="B02.png" class="thumbnail" data-target="B02">
+                <img src="B03.png" class="thumbnail" data-target="B03">
+                <img src="B04.png" class="thumbnail" data-target="B04">
+                <img src="B05.png" class="thumbnail" data-target="B05">
+                <img src="B06.png" class="thumbnail" data-target="B06">
+                <img src="B07.png" class="thumbnail" data-target="B07">
+                <img src="B08.png" class="thumbnail" data-target="B08">
+                <img src="B09.png" class="thumbnail" data-target="B09">
+                <img src="B10.png" class="thumbnail" data-target="B10">
+                <img src="B11.png" class="thumbnail" data-target="B11">
+            </div>
+            <!-- Solid Colors -->
+            <h3 class="section-title">Solid Colors</h3>
+            <div class="image-gallery">
+                <img src="B12.png" class="thumbnail" data-target="B12">
+                <img src="B13.png" class="thumbnail" data-target="B13">
+                <img src="B14.png" class="thumbnail" data-target="B14">
+                <img src="B15.png" class="thumbnail" data-target="B15">
+                <img src="B16.png" class="thumbnail" data-target="B16">
+                <img src="B17.png" class="thumbnail" data-target="B17">
+                <img src="B18.png" class="thumbnail" data-target="B18">
+                <img src="B19.png" class="thumbnail" data-target="B19">
+                <img src="B20.png" class="thumbnail" data-target="B20">
+                <img src="B21.png" class="thumbnail" data-target="B21">
+                <img src="B22.png" class="thumbnail" data-target="B22">
+            </div>
+            <!-- Glitter Colors -->
+            <h3 class="section-title">Glitter Colors</h3>
+            <div class="image-gallery">
+                <img src="B23.png" class="thumbnail" data-target="B23">
+                <img src="B24.png" class="thumbnail" data-target="B24">
+                <img src="B25.png" class="thumbnail" data-target="B25">
+                <img src="B26.png" class="thumbnail" data-target="B26">
+                <img src="B27.png" class="thumbnail" data-target="B27">
+                <img src="B28.png" class="thumbnail" data-target="B28">
+                <img src="B29.png" class="thumbnail" data-target="B29">
+            </div>
+        </div>
+
+        <!-- Left box -->
+        <div class="content-box" id="boxLs">
+            <!-- Transparent Colors -->
+            <h3 class="section-title">Transparent Colors</h3>
+            <div class="image-gallery">
+                <img src="B01.png" class="thumbnail" data-target="L01">
+                <img src="B02.png" class="thumbnail" data-target="L02">
+                <img src="B03.png" class="thumbnail" data-target="L03">
+                <img src="B04.png" class="thumbnail" data-target="L04">
+                <img src="B05.png" class="thumbnail" data-target="L05">
+                <img src="B06.png" class="thumbnail" data-target="L06">
+                <img src="B07.png" class="thumbnail" data-target="L07">
+                <img src="B08.png" class="thumbnail" data-target="L08">
+                <img src="B09.png" class="thumbnail" data-target="L09">
+                <img src="B10.png" class="thumbnail" data-target="L10">
+                <img src="B11.png" class="thumbnail" data-target="L11">
+            </div>
+            <!-- Solid Colors -->
+            <h3 class="section-title">Solid Colors</h3>
+            <div class="image-gallery">
+                <img src="B12.png" class="thumbnail" data-target="L12">
+                <img src="B13.png" class="thumbnail" data-target="L13">
+                <img src="B14.png" class="thumbnail" data-target="L14">
+                <img src="B15.png" class="thumbnail" data-target="L15">
+                <img src="B16.png" class="thumbnail" data-target="L16">
+                <img src="B17.png" class="thumbnail" data-target="L17">
+                <img src="B18.png" class="thumbnail" data-target="L18">
+                <img src="B19.png" class="thumbnail" data-target="L19">
+                <img src="B20.png" class="thumbnail" data-target="L20">
+                <img src="B21.png" class="thumbnail" data-target="L21">
+                <img src="B22.png" class="thumbnail" data-target="L22">
+            </div>
+            <!-- Glitter Colors -->
+            <h3 class="section-title">Glitter Colors</h3>
+            <div class="image-gallery">
+                <img src="B23.png" class="thumbnail" data-target="L23">
+                <img src="B24.png" class="thumbnail" data-target="L24">
+                <img src="B25.png" class="thumbnail" data-target="L25">
+                <img src="B26.png" class="thumbnail" data-target="L26">
+                <img src="B27.png" class="thumbnail" data-target="L27">
+                <img src="B28.png" class="thumbnail" data-target="L28">
+                <img src="B29.png" class="thumbnail" data-target="L29">
+            </div>
+        </div>
+
+        <!-- Right box -->
+        <div class="content-box" id="boxRs">
+            <!-- Transparent Colors -->
+            <h3 class="section-title">Transparent Colors</h3>
+            <div class="image-gallery">
+                <img src="B01.png" class="thumbnail" data-target="R01">
+                <img src="B02.png" class="thumbnail" data-target="R02">
+                <img src="B03.png" class="thumbnail" data-target="R03">
+                <img src="B04.png" class="thumbnail" data-target="R04">
+                <img src="B05.png" class="thumbnail" data-target="R05">
+                <img src="B06.png" class="thumbnail" data-target="R06">
+                <img src="B07.png" class="thumbnail" data-target="R07">
+                <img src="B08.png" class="thumbnail" data-target="R08">
+                <img src="B09.png" class="thumbnail" data-target="R09">
+                <img src="B10.png" class="thumbnail" data-target="R10">
+                <img src="B11.png" class="thumbnail" data-target="R11">
+            </div>
+            <!-- Solid Colors -->
+            <h3 class="section-title">Solid Colors</h3>
+            <div class="image-gallery">
+                <img src="B12.png" class="thumbnail" data-target="R12">
+                <img src="B13.png" class="thumbnail" data-target="R13">
+                <img src="B14.png" class="thumbnail" data-target="R14">
+                <img src="B15.png" class="thumbnail" data-target="R15">
+                <img src="B16.png" class="thumbnail" data-target="R16">
+                <img src="B17.png" class="thumbnail" data-target="R17">
+                <img src="B18.png" class="thumbnail" data-target="R18">
+                <img src="B19.png" class="thumbnail" data-target="R19">
+                <img src="B20.png" class="thumbnail" data-target="R20">
+                <img src="B21.png" class="thumbnail" data-target="R21">
+                <img src="B22.png" class="thumbnail" data-target="R22">
+            </div>
+            <!-- Glitter Colors -->
+            <h3 class="section-title">Glitter Colors</h3>
+            <div class="image-gallery">
+                <img src="B23.png" class="thumbnail" data-target="R23">
+                <img src="B24.png" class="thumbnail" data-target="R24">
+                <img src="B25.png" class="thumbnail" data-target="R25">
+                <img src="B26.png" class="thumbnail" data-target="R26">
+                <img src="B27.png" class="thumbnail" data-target="R27">
+                <img src="B28.png" class="thumbnail" data-target="R28">
+                <img src="B29.png" class="thumbnail" data-target="R29">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const colorNames = [
+                "Transparent Clear", "Transparent Black", "Transparent Red", "Transparent Sky Blue", "Transparent Navy Blue", 
+                "Transparent Apple Green", "Transparent Emerald Green", "Transparent Yellow", "Transparent Orange", 
+                "Transparent Purple", "Transparent Pink",
+                "Solid White", "Solid Black", "Solid Red", "Solid Sky Blue", "Solid Navy Blue", "Solid Apple Green", 
+                "Solid Emerald Green", "Solid Yellow", "Solid Orange", "Solid Purple", "Solid Pink",
+                "Glitter Silver", "Glitter Gold", "Glitter Red", "Glitter Blue", "Glitter Green", "Glitter Purple", "Glitter Pink"
+            ];
+
+            const section = document.querySelector('.color-selector');
+            const tabs = section.querySelectorAll('.tab');
+            const contentBoxes = section.querySelectorAll('.content-box');
+            const thumbnails = section.querySelectorAll('.thumbnail');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contentBoxes.forEach(box => box.classList.remove('active'));
+                    tab.classList.add('active');
+                    const targetId = tab.id.replace('text', 'box');
+                    section.querySelector(`#${targetId}`).classList.add('active');
+                });
+            });
+
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const target = thumb.getAttribute('data-target');
+                    const type = target.charAt(0);
+                    const number = parseInt(target.substring(1), 10);
+                    const colorIndex = number - 1;
+                    const colorName = colorNames[colorIndex];
+
+                    if (type === 'L') {
+                        section.querySelector('#jpeg01L').src = `L${number.toString().padStart(2, "0")}.png`;
+                        section.querySelector('#textLeft').textContent = `Left: ${colorName}`;
+                    } else if (type === 'R') {
+                        section.querySelector('#jpeg01R').src = `R${number.toString().padStart(2, "0")}.png`;
+                        section.querySelector('#textRight').textContent = `Right: ${colorName}`;
+                    } else if (type === 'B') {
+                        section.querySelector('#jpeg01L').src = `L${number.toString().padStart(2, "0")}.png`;
+                        section.querySelector('#jpeg01R').src = `R${number.toString().padStart(2, "0")}.png`;
+                        section.querySelector('#textLeft').textContent = `Left: ${colorName}`;
+                        section.querySelector('#textRight').textContent = `Right: ${colorName}`;
+                    }
+                });
+            });
+        })();
+    </script>
+</section>
